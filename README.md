@@ -1,2 +1,3 @@
 # startup of Landon Fackrell
-# Changing the same line in hope to get a merge conflict
+# Merge Conflict Homework
+<p>I can't seem to figure out how to get it to give me a merge conflict with the instructions we were given.. I seem to follow them exactly and I just keep having everything go smoothly! I even used the command line.. The only way I can think of getting a merge conflict is if I have two branches pulled off of main and have them both change the same line to different things. The after tyring to merge those then I know I would have a problem but it seems that even if I don't push changes and just try to pull them from git hub even after a commit everything goes fine.</p>
