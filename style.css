@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 2rem;
+  /* text-align: center; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 20px;
+}
+
+img { 
+  max-width: 100%;
+}
+
+.container {
+  margin: 1rem 1rem;
+  border: thin solid #dee2e6;
+  border-radius: 0.25rem;
+  padding: 1rem;
+}
+
+/* div .imageContainer { 
+  width: 900px; 
+} */
+
+#graph {
+  width: 900px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  /* float: left; */
+  width: 33%
+}
+

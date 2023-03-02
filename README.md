@@ -24,3 +24,7 @@ ssh -i [key pair file] ubuntu@[ip address]
 And I used this to make sure my key wasn't public so I was permitted to ssh
 
 chmod  600 [key pair file]
+
+# How to update the live website
+
+./deployFiles.sh -k yourpemkey -h yourdomain -s startup
