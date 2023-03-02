@@ -28,3 +28,7 @@ chmod  600 [key pair file]
 # How to update the live website
 
 ./deployFiles.sh -k yourpemkey -h yourdomain -s startup
+
+# Things learned from designing the page
+
+Honeslty I think using a framework like bootstrap is absolutely the best way to go. It can save so much time when you find the tools that you need! I am really excited to keep developing my page with that. Also, using online resources like codepen and others can be super helpful when trying to accomplish specific things!
