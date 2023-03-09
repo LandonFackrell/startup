@@ -32,3 +32,6 @@ chmod  600 [key pair file]
 # Things learned from designing the page
 
 Honeslty I think using a framework like bootstrap is absolutely the best way to go. It can save so much time when you find the tools that you need! I am really excited to keep developing my page with that. Also, using online resources like codepen and others can be super helpful when trying to accomplish specific things!
+
+# Things learned from Simon javascript
+Looking at the example was super helpful for seeing real examples on storing data, modifying the DOM, and processing operations in javascript! I thought the code was really well done and I am looking forward to writing more of my own JS!
