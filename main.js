@@ -14,22 +14,35 @@ function getAndSetTopics() {
 function fetchTopics(topics) {
   return new Promise((resolve, reject) => {
     //Get the topics from the database
-    reject("Implement the database lookup later")
+    reject("Implement the database lookup later");
   })
 }
 
 function setTopicsOnPage(topics) {
-  newHtml = ""
+
+  const topicListElem = document.getElementById("topicList");
+  topicListElem.innerHTML = "" // Remove all current children
+
   for (const topic of topics) {
-    newHtml += getTopicHtml(topic)
+    // let newHtml = getTopicHtml(topic);
+    let button = document.createElement("button")
+    
+    button.textContent = topic
+    button.className = "btn btn-primary"
+    button.addEventListener("click", () => {
+      getAndSetGraph(topic)
+    })
+
+    topicListElem.appendChild(button)
   }
-  const topicListElem = document.getElementById("topicList")
-  topicListElem.innerHTML = newHtml
 }
 
-function getTopicHtml(topic) {
-  topicHtml = "<button class=\"btn btn-primary\">" + topic + "</button>"
-  return topicHtml
+function getAndSetGraph(topic) {
+  getData(topic)
+    .catch(() => {
+      document.getElementById("graph").innerHTML = "<p> Oh no! There was an error retrieving your" 
+      + "data for the topic: " + topic + " please try another topic.</p>";
+    })
 }
 
 function getData(topic) {
