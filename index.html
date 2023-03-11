@@ -11,6 +11,7 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <script type="text/javascript" src="main.js" defer></script>
   </head>
   <body>
     <!-- Bootstrap -->
@@ -43,16 +44,14 @@
     </header>
 
     <main>
-        <div class="row container">
+        <div class="row">
           <div class="column">
             <h1>Topics Trending</h1>
-            <ul id="topic_list">
-              <li>
-                <button class="btn btn-primary">
-                  Topic
-                </button>
-              </li>
-            </ul>
+            <div id="topicList">
+              <button class="btn btn-primary">
+                Topic
+              </button>
+            </div>
           </div>
           <div class="column container" id="graph">
             <h1>[Selected Topic]'s Trend data</h1>
