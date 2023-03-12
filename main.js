@@ -42,20 +42,13 @@ function getAndSetGraph(topic) {
     .catch(() => {
       document.getElementById("trendDataHeader").innerText = topic + "\'s Trend data";
       document.getElementById("graph").innerHTML = "<p> Oh no! There was an error retrieving your" 
-      + "data for the topic: " + topic + " please try another topic.</p>";
+      + "data for the topic: " + topic + ". Please try another topic.</p>";
     });
 }
 
 function getData(topic) {
   return new Promise((resolve, reject) => {
     //Get the data for a specific topic
-    reject("Implement the database lookup later");
-  })
-}
-
-function getSiteVisits() {
-  return new Promise((resolve, reject) => {
-    //Get the data for How many site visits there ahve been
     reject("Implement the database lookup later");
   })
 }
@@ -85,12 +78,31 @@ function setupFavorites() {
     })
 }
 
+function getSiteVisits() {
+  return new Promise((resolve, reject) => {
+    //Get the data for How many site visits there ahve been
+    reject("Implement the database lookup later");
+  })
+}
+
+function setupSiteVisits() {
+  getSiteVisits()
+    .then(() => {
+      document.getElementById("numSiteVisitsVal").innerText = numSiteVisits
+    })
+    .catch(() => {
+      document.getElementById("numSiteVisitsVal").innerText = "Err"
+    })
+}
+
 /////////////////////////////////////////////////
 
 //User Data
 let favoriteTopics = []
 
 // Backup Data
+
+let numSiteVisits = 0
 
 let backupTopics = [
   "Instagram",
@@ -103,6 +115,12 @@ let backupTopics = [
 
 // Main Code
 
-getAndSetTopics()
+function main() {
+  getAndSetTopics()
 
-setupFavorites()
+  setupFavorites()
+
+  setupSiteVisits()
+}
+
+main()
