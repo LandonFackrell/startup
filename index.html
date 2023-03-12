@@ -53,9 +53,10 @@
               </button>
             </div>
           </div>
-          <div class="column container" id="graph">
-            <h1>[Selected Topic]'s Trend data</h1>
-            <div class="imageContainer">
+          <div class="column container">
+            <h1 id="trendDataHeader">Example Topic's Trend data</h1>
+            <button class="btn btn-primary" id="setFavoriteButton">Set as Favorite</button>
+            <div class="imageContainer" id="graph">
               <img src="/graphs/insta.png" alt = "instagram graph">
             </div>
           </div>
@@ -64,13 +65,13 @@
           <div class="column footer">
             <div class="counter container">
               <div>Total Site Visits</div>
-              <h1>X</h1>
+              <h1 id = "siteVisitsVal">X</h1>
             </div>
           </div>
           <div class="column">
             <div class="counter container">
               <div>Num Favorite Topics</div>
-              <h1>X</h1>
+              <h1 id = "numFavoriteTopicsVal">X</h1>
             </div>
           </div>
         </div>
