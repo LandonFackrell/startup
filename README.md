@@ -33,5 +33,9 @@ chmod  600 [key pair file]
 
 Honeslty I think using a framework like bootstrap is absolutely the best way to go. It can save so much time when you find the tools that you need! I am really excited to keep developing my page with that. Also, using online resources like codepen and others can be super helpful when trying to accomplish specific things!
 
+# Things learned from implementing the java script
+
+Ok that was actually super fun! It is really cool to see your website interact with you in ways that you want! Also thinging about asyncronous implementation to keep the experience smooth is so cool! I am learning alot about different ways to implement js and things you need to think about. Like making sure your js runs when you need it to! Loving this for sure
+
 # Things learned from Simon javascript
 Looking at the example was super helpful for seeing real examples on storing data, modifying the DOM, and processing operations in javascript! I thought the code was really well done and I am looking forward to writing more of my own JS!
