@@ -42,3 +42,6 @@ Looking at the example was super helpful for seeing real examples on storing dat
 
 # Things I learned form the Simon Service HW
 This was extremely useful!! Looking through the code it was really nice to see how they configured everything and setup express. Looking at the different api calls and how they had express load all of the regular files using the static function was interesting and I did some digging into that. I also am glad I dug into the other js files to see how they used the defined apis by using the fetch function call. Super useful and I am excited to keep learning!
+
+# Things I learned from the Simon DB HW
+Mongo DB is so nice to use! I really like the organization that simon used seperating the method implementations away and I think I will follow a similare pattern in my startup. I really like the simple use of json that mongo db uses. It really was just so intuative! And the api is really easy to use and as soon as it was explained it made perfect sense. I am looking forward to implementing this myself!
