@@ -45,3 +45,6 @@ This was extremely useful!! Looking through the code it was really nice to see h
 
 # Things I learned from the Simon DB HW
 Mongo DB is so nice to use! I really like the organization that simon used seperating the method implementations away and I think I will follow a similare pattern in my startup. I really like the simple use of json that mongo db uses. It really was just so intuative! And the api is really easy to use and as soon as it was explained it made perfect sense. I am looking forward to implementing this myself!
+
+# Things I learned from the Simon Login HW
+The librarys make setting up a login service pretty intuitive, especially the database aspect of it. It just takes a little bit of know how with setting up the authentication is where things get hairy. There is definitely quite a bit to wrap my head around there with all of the http request but really when you break it down it is really managable. One thing I was kind of stuck on as well was how we compare passwords if one of them in encrypted but the bcrypt library makes that really easy with the compare method. It is crazy to see how far we have come!
