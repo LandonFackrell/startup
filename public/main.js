@@ -78,11 +78,8 @@ function setupFavorites() {
     })
 }
 
-function getSiteVisits() {
-  return new Promise((resolve, reject) => {
-    //Get the data for How many site visits there ahve been
-    reject("Implement the database lookup later");
-  })
+async function getSiteVisits() {
+  numSiteVisits = await (await fetch("/api/visits")).json();
 }
 
 function setupSiteVisits() {
