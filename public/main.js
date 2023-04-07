@@ -82,14 +82,9 @@ async function getSiteVisits() {
   numSiteVisits = await (await fetch("/api/visits")).json();
 }
 
-function setupSiteVisits() {
-  getSiteVisits()
-    .then(() => {
-      document.getElementById("numSiteVisitsVal").innerText = numSiteVisits
-    })
-    .catch(() => {
-      document.getElementById("numSiteVisitsVal").innerText = "Err"
-    })
+async function setupSiteVisits() {
+  await getSiteVisits()
+  document.getElementById("numSiteVisitsVal").innerText = numSiteVisits
 }
 
 /////////////////////////////////////////////////
