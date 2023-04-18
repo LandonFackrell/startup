@@ -51,3 +51,31 @@ The librarys make setting up a login service pretty intuitive, especially the da
 
 # Things I learned from the Simon Websocket HW
 Setting upa nd using websockets isn't as difficult as I thought it was! As I understand it, it seems like each websocket is basically a mini server that is interacting with eachother as well as the designated port in order to communicate and run! I would love to learn how this works and is run on a large scale! But as they do so YUou just need to juggle a few requests and you can really get everything done pretty easily! The file division on the simon project was done well and made everything easy to read and understand. I will definitely be following a similar pattern on my website. I especially like the ping and pong attributes to monitor what connections are still live!
+
+# Things I want to remember from the simon React HW
+
+React's approach of having a single page based wab application is so nice! I really like just using javascript to swap out elements as I need them and to me it makes a lot more sense coming from a more backend background. 
+
+Dynamically showing elements based on variables has a pretty interesting syntax but makes sense as I think about short circut evaluation ex: {authState !== AuthState.Unknown && <h1>Welcome to Simon</h1>} I will definitley want to remember that.
+
+Another thing that is really nice is being able to split out your different view components into seperate files. Just having seperate .jsx files makes organization really nice. All you need to do is just export your function at returns your component and you are set!
+
+One thing I want to remember to is making sure in index.jsx is to setup the <BrowserRouter> with <App /> as a child so navigation can be done proply and setting up the nav buttons is a little different as well.
+
+<a className="nav-link" href="play.html">Play</a>
+
+to
+
+<NavLink className='nav-link' to='play'>Play</NavLink>
+
+Also got to remember to give the different routes so the router knows what to do with the different paths
+
+<Routes>
+  <Route path='/' element={<Login />} exact />
+  <Route path='/play' element={<Play />} />
+  <Route path='/scores' element={<Scores />} />
+  <Route path='/about' element={<About />} />
+  <Route path='*' element={<NotFound />} />
+</Routes>
+
+Going through all of these different things it is easy to see that React differs pretty fundamentally from bulding with vanilla js but I think I am definitely going to use it the next time I build a web application! Definitely looking forward to it
