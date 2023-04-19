@@ -13,8 +13,11 @@ if (!userName) {
 const url = `mongodb+srv://${userName}:${password}@${hostname}`;
 
 const client = new MongoClient(url);
+(async function() {
+	await client.connect();
+})();
 const userCollection = client.db('startup').collection('users');
-const metadataCollection = client.db('startup').collection('startup-metadata') // TODO Implement this in mongo
+const metadataCollection = client.db('startup').collection('metadata');
 
 function getUser(email) {
   return userCollection.findOne({ email: email });
@@ -39,9 +42,11 @@ async function createUser(email, password) {
 }
 
 async function getVisits(){
-  let currNumVisitsObj = metadataCollection.distinct("numVisits")[0];
-  updateNumVisits(currNumVisitsObj["numVisits"]);
-  return currNumVisitsObj["numVisits"];
+  const currNumVisitsObj = await metadataCollection.findOne({numVisits : {$gte : 0}});
+  let currNumVisits = currNumVisitsObj.numVisits;
+  console.log("Current Number of Visits: " + currNumVisits);
+  updateNumVisits(currNumVisits);
+  return currNumVisitsObj;
 }
 
 async function updateNumVisits(currNumVisits){
@@ -50,7 +55,7 @@ async function updateNumVisits(currNumVisits){
        numVisits: currNumVisits + 1,
     },
   };
-  const filter = { type: "numVisits" };
+  const filter = {numVisits : {$gte : 0}};
   metadataCollection.updateOne(filter, updateDocument);
 }
 

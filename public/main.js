@@ -79,12 +79,13 @@ function setupFavorites() {
 }
 
 async function getSiteVisits() {
-  numSiteVisits = await (await fetch("/api/visits")).json();
+  const resp = await fetch("/api/visits")
+  const numSiteVisits = await resp.json();
+  return numSiteVisits.numVisits
 }
 
 async function setupSiteVisits() {
-  await getSiteVisits()
-  document.getElementById("numSiteVisitsVal").innerText = numSiteVisits
+  document.getElementById("numSiteVisitsVal").innerText = await getSiteVisits()
 }
 
 /////////////////////////////////////////////////
@@ -93,8 +94,6 @@ async function setupSiteVisits() {
 let favoriteTopics = []
 
 // Backup Data
-
-let numSiteVisits = 0
 
 let backupTopics = [
   "Instagram",
