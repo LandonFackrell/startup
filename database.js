@@ -35,6 +35,7 @@ async function createUser(email, password) {
     email: email,
     password: passwordHash,
     token: uuid.v4(),
+    numFavTopics: 0
   };
   await userCollection.insertOne(user);
 

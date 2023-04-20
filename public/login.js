@@ -47,12 +47,6 @@ async function loginOrCreate(endpoint) {
   }
 }
 
-function logout() {
-  fetch(`/api/auth/logout`, {
-    method: 'delete',
-  }).then(() => (window.location.href = '/'));
-}
-
 async function getUser(email) {
   // See if we have a user with the given email.
   const response = await fetch(`/api/user/${email}`);
@@ -69,3 +63,22 @@ function setDisplay(controlId, display) {
     playControlEl.style.display = display;
   }
 }
+
+async function getSiteVisits() {
+  const resp = await fetch("/api/visits")
+  const numSiteVisits = await resp.json();
+  localStorage.setItem("siteVisits", numSiteVisits.numVisits)
+  return numSiteVisits.numVisits
+}
+
+async function setupSiteVisits() {
+  let siteVisitsVal = 0;
+  if (localStorage.getItem("siteVisits") !== null) {
+    siteVisitsVal = localStorage.getItem("siteVisits")
+  } else {
+    siteVisitsVal = await getSiteVisits()
+  }
+  document.getElementById("numSiteVisitsVal").innerText = siteVisitsVal
+}
+
+setupSiteVisits()

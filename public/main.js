@@ -10,6 +10,12 @@ function getAndSetTopics() {
   })
 }
 
+function logout() {
+  fetch(`/api/auth/logout`, {
+    method: 'delete',
+  }).then(() => (window.location.href = '/index.html'));
+}
+
 //Fetch the topics from the databse
 function fetchTopics(topics) {
   return new Promise((resolve, reject) => {
@@ -78,14 +84,8 @@ function setupFavorites() {
     })
 }
 
-async function getSiteVisits() {
-  const resp = await fetch("/api/visits")
-  const numSiteVisits = await resp.json();
-  return numSiteVisits.numVisits
-}
-
-async function setupSiteVisits() {
-  document.getElementById("numSiteVisitsVal").innerText = await getSiteVisits()
+function setSiteVisits(){
+  document.getElementById("numSiteVisitsVal").innerText = localStorage.getItem("siteVisits")
 }
 
 /////////////////////////////////////////////////
@@ -111,7 +111,7 @@ function main() {
 
   setupFavorites()
 
-  setupSiteVisits()
+  setSiteVisits()
 }
 
 main()
