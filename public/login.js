@@ -72,13 +72,7 @@ async function getSiteVisits() {
 }
 
 async function setupSiteVisits() {
-  let siteVisitsVal = 0;
-  if (localStorage.getItem("siteVisits") !== null) {
-    siteVisitsVal = localStorage.getItem("siteVisits")
-  } else {
-    siteVisitsVal = await getSiteVisits()
-  }
-  document.getElementById("numSiteVisitsVal").innerText = siteVisitsVal
+  document.getElementById("numSiteVisitsVal").innerText = await getSiteVisits();
 }
 
 setupSiteVisits()

@@ -83,10 +83,16 @@ apiRouter.get('/user/:email', async (req, res) => {
 //   }
 // });
 
-// GetSiteVisits
+// Get site visits
 apiRouter.get('/visits', async (req, res) => {
   const numVisits = await DB.getVisits();
   res.send(numVisits);
+});
+
+// Get the favorite topics
+apiRouter.get('/favorites/:email', async (req, res) => {
+  const favTopics = await DB.getFavoriteTopics(req.params.email);
+  res.send({favTopics: favTopics})
 });
 
 // Default error handler
@@ -111,5 +117,3 @@ function setAuthCookie(res, authToken) {
 const httpService = app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
-
-// new PeerProxy(httpService);

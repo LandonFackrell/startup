@@ -44,19 +44,25 @@ function setTopicsOnPage(topics) {
 }
 
 function getAndSetGraph(topic) {
-  getData(topic)
-    .catch(() => {
-      document.getElementById("trendDataHeader").innerText = topic + "\'s Trend data";
+  document.getElementById("trendDataHeader").innerText = topic + "\'s Trend data";
+  let data = getData(topic)
+  try{
+    setGraph(data);
+  }
+  catch{
       document.getElementById("graph").innerHTML = "<p> Oh no! There was an error retrieving your" 
       + "data for the topic: " + topic + ". Please try another topic.</p>";
-    });
+  }
+}
+
+function setGraph(data) {
+  document.getElementById("graph").innerHTML = "<img src=\"/graphs/"+ data +"\" alt = \"graph\">"
 }
 
 function getData(topic) {
-  return new Promise((resolve, reject) => {
-    //Get the data for a specific topic
-    reject("Implement the database lookup later");
-  })
+  // In the future confiure a solution to not store the images locally. Mongo doesn't store images. 
+  // Or instead have csvs and convert those to graphs
+  return topic + ".png";
 }
 
 function setFavorite(topic) {
@@ -67,21 +73,15 @@ function setFavorite(topic) {
   pushFavorites()
 }
 
-function getFavorites() {
-  return new Promise((resolve, reject) => {
-    //Get the Favorites data later
-    reject("Implement the database lookup later")
-  })
+async function getFavorites(email) {
+  resp = await fetch(`/api/favorites/${email}`);
+  body = await resp.json();
+  return body.favoriteTopics;
 }
 
-function setupFavorites() {
-  getFavorites()
-    .then(() => {
-      document.getElementById("numFavoriteTopicsVal").innerText = favoriteTopics.length
-    })
-    .catch(() => {
-      document.getElementById("numFavoriteTopicsVal").innerText = "Err"
-    })
+async function setupFavorites() {
+  const favoriteTopics = await getFavorites(localStorage.getItem("userName"))
+  document.getElementById("numFavoriteTopicsVal").innerText = favoriteTopics.length
 }
 
 function setSiteVisits(){

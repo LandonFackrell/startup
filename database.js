@@ -31,15 +31,28 @@ async function createUser(email, password) {
   // Hash the password before we insert it into the database
   const passwordHash = await bcrypt.hash(password, 10);
 
+  let backupTopics = [
+    "Instagram",
+    "Cooking",
+    "Sports",
+    "Rock Climbing",
+    "test"
+  ]
+
   const user = {
     email: email,
     password: passwordHash,
     token: uuid.v4(),
-    numFavTopics: 0
+    favTopics: backupTopics
   };
   await userCollection.insertOne(user);
 
   return user;
+}
+
+async function getFavoriteTopics(userEmail){
+  let user = await getUser(userEmail);
+  return user.favTopics;
 }
 
 async function getVisits(){
@@ -64,5 +77,6 @@ module.exports = {
   getUser,
   getUserByToken,
   createUser,
-  getVisits
+  getVisits,
+  getFavoriteTopics
 };
